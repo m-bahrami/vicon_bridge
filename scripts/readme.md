@@ -4,10 +4,16 @@ some high-level python codes that calls broadcasted [tf](http://wiki.ros.org/tf)
 
 
 
+## telloswarm
 
 
+layered architecture:
 
+- Todo: python scipts that calls  broadcasted tf Pose data. should it be msg or srv? what are the dependecies? 
 
+-  ROS node for motion capture [vicon_bridge](https://github.com/ethz-asl/vicon_bridge), it has one node "vicon" broadcasts tf Pose data (line 503 and 537 in /src/vicon_bridge/src/vicon_bridge.cpp) 
+
+- [TelloPy](https://github.com/m-bahrami/TelloPy) modules establishes Wi-Fi connections with Tello drones to send control commands
 
 
 
