@@ -303,9 +303,13 @@ private:
     {
       result = vicon_client_.SetStreamMode(StreamMode::ClientPull).Result;
     }
+    else if (stream_mode_ == "ClientPullPreFetch")
+    {
+      result = vicon_client_.SetStreamMode(StreamMode::ClientPullPreFetch).Result;
+    }
     else
     {
-      ROS_FATAL("Unknown stream mode -- options are ServerPush, ClientPull");
+      ROS_FATAL("Unknown stream mode -- options are ServerPush, ClientPull, ClientPullPreFetch");
       ros::shutdown();
     }
 
@@ -383,7 +387,7 @@ private:
     {
       while (vicon_client_.GetFrame().Result != Result::Success && ros::ok())
       {
-        ROS_INFO("getFrame returned false");
+        ROS_INFO("getFrame returned false !!!");
         d.sleep();
       }
       now_time = ros::Time::now();
